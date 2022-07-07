@@ -6,6 +6,7 @@ __pycache__/
 # C extensions
 *.so
 
+flight/artifact
 # Distribution / packaging
 .Python
 build/
@@ -128,4 +129,3 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-flight/artifact
