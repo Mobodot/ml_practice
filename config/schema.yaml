@@ -1,0 +1,62 @@
+columns:
+  Airline: object
+  Date_of_Journey: object
+  Source: object
+  Destination: object
+  Route: object
+  Dep_Time: object
+  Arrival_Time: object
+  Duration: object
+  Total_Stops: object
+  Additional_Info: object
+  Price: int
+
+target_column: Price
+
+domain_values:
+  Airline:
+    - IndiGo
+    - Air India
+    - Jet Airways
+    - SpiceJet
+    - Multiple carriers
+    - GoAir
+    - Vistara
+    - Air Asia
+    - Vistara Premium economy
+    - Jet Airways Business
+    - Multiple carriers Premium economy
+    - Trujet
+
+  Source:
+    - Banglore
+    - Kolkata
+    - Delhi
+    - Chennai
+    - Mumbai
+
+  Destination:
+    - New Delhi
+    - Banglore
+    - Cochin
+    - Kolkata
+    - Delhi
+    - Hyderabad
+
+  Total_Stops:
+    - non-stop
+    - 2 stops
+    - 1 stop
+    - 3 stops
+    - 4 stops
+
+  Additional_Info:
+    - No info
+    - In-flight meal not included
+    - No check-in baggage included
+    - 1 Short layover
+    - 1 Long layover
+    - Change airports
+    - Business class
+    - Red-eye flight
+    - 2 Long layover
