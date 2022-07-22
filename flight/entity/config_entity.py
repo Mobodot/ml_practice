@@ -5,6 +5,7 @@ DataIngestionConfig = namedtuple("DataIngestionConfig", ["dataset_download_url",
                                                          "zip_download_dir",
                                                          "ingested_dir",
                                                          "ingested_train_dir",
+                                                         "ingested_validation_dir",
                                                          "ingested_test_dir"])
 
 DataValidationConfig = namedtuple("DataValidationConfig", ["schema_dir",
@@ -12,11 +13,11 @@ DataValidationConfig = namedtuple("DataValidationConfig", ["schema_dir",
                                                            "report_file_path",
                                                            "report_page_file_path"])
 
-DataTransformationConfig = namedtuple("DataTransformationConfig", ["transformed_dir",
+DataTransformationConfig = namedtuple("DataTransformationConfig", [# "generate_clean_date_cols",
+                                                                   "transformed_dir",
                                                                    "transformed_train_dir",
-                                                                   "transformed_test_dir",
-                                                                   "preprocessing_dir",
-                                                                   "preprocessed_object_file_name"])
+                                                                   "transformed_validation_dir",
+                                                                   "preprocessed_object_file_path"])
 
 ModelTrainerConfig = namedtuple("ModelTrainerconfig", ["trained_model_dir",
                                                        "model_file_name",

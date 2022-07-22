@@ -44,6 +44,9 @@ class Configuration:
             ingested_train_dir = os.path.join(data_ingestion_artifact_dir,
                                               ingested_dir,
                                               data_ingestion_info[INGESTED_TRAIN_DIR_KEY])
+            ingested_validation_dir = os.path.join(data_ingestion_artifact_dir,
+                                                   ingested_dir,
+                                                   data_ingestion_info[INGESTED_VALIDATION_DIR_KEY])
             ingested_test_dir = os.path.join(data_ingestion_artifact_dir,
                                              ingested_dir,
                                              data_ingestion_info[INGESTED_TEST_DIR_KEY])
@@ -53,6 +56,7 @@ class Configuration:
                                                         zip_download_dir=zip_download_dir,
                                                         ingested_dir=ingested_dir,
                                                         ingested_train_dir=ingested_train_dir,
+                                                        ingested_validation_dir=ingested_validation_dir,
                                                         ingested_test_dir=ingested_test_dir)
             # print(data_ingestion_config)
             logging.info(f"Data Ingestion config: {data_ingestion_config}")
@@ -89,7 +93,45 @@ class Configuration:
 
 
     def get_data_transformation_config(self) -> DataTransformationConfig:
-        pass
+        try:
+            artifact_dir = self.training_pipeline_config.artifact_dir
+            data_transformation_config = self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
+
+            # generate_clean_date_cols = data_transformation_config[DATA_TRANSFORMATION_GENERATE_CLEAN_DATE_COLS_KEY]
+            data_transformation_dir = os.path.join(artifact_dir,
+                                           DATA_TRANSFORMATION_DIR_KEY,
+                                           self.current_time_stamp)
+
+            preprocessed_object_file_path = os.path.join(data_transformation_dir,
+                                                         data_transformation_config[DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY],
+                                                         data_transformation_config[DATA_TRANSFORMATION_PREPROCESSED_OBJECT_FILE_NAME_KEY])
+
+            transformed_dir = os.path.join(data_transformation_dir,
+                                           data_transformation_config[DATA_TRANSFORMATION_TRANSFORMED_DIR_KEY])
+
+            transformed_train_dir = os.path.join(transformed_dir,
+                                                 data_transformation_config[DATA_TRANSFORMATION_TRAIN_DIR_KEY])
+
+            transformed_validation_dir = os.path.join(transformed_dir,
+                                                      data_transformation_config[DATA_TRANSFORMATION_VALIDATION_DIR_KEY])
+
+            # preprocessing_dir = os.path.join(data_transformation_dir,
+            #                                  DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY)
+
+            # preprocessed_object_file_name = os.path.join(preprocessed_object_file_path,
+            #                                               data_transformation_config[DATA_TRANSFORMATION_PREPROCESSED_OBJECT_FILE_NAME_KEY])
+
+            data_transformation_config = DataTransformationConfig(# generate_clean_date_cols=generate_clean_date_cols,
+                                                                  transformed_dir=transformed_dir,
+                                                                  transformed_train_dir=transformed_train_dir,
+                                                                  transformed_validation_dir=transformed_validation_dir,
+                                                                  # transformed_test_dir=transformed_test_dir,
+                                                                  # preprocessing_dir=preprocessing_dir,
+                                                                  preprocessed_object_file_path=preprocessed_object_file_path)
+            logging.info(f"Data Transformation Config: [{data_transformation_config}]")
+            return data_transformation_config
+        except Exception as e:
+            raise FlightException(e, sys)
 
     def get_model_trainer_config(self) -> ModelTrainerConfig:
         pass
@@ -104,7 +146,6 @@ class Configuration:
                                         training_pipeline_config[TRAINING_PIPELINE_NAME_KEY],
                                         training_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY])
             training_pipeline_config = TrainingPipelineConfig(artifact_dir=artifact_dir)
-            # uncomment this two lines
             logging.info(f"Training pipeline config: {training_pipeline_config}")
             # print(training_pipeline_config)
             return TrainingPipelineConfig(artifact_dir=artifact_dir)

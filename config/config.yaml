@@ -8,6 +8,7 @@ data_ingestion_config:
   zip_download_dir: zip_data
   ingested_dir: ingested_data
   ingested_train_dir: train
+  ingested_validation_dir: validation
   ingested_test_dir: test
 
 
@@ -18,9 +19,10 @@ data_validation_config:
   report_page_file_name: report.html
 
 data_transformation_config:
+#  generate_clean_date_cols: true
   transformed_dir: transformed_data
   transformed_train_dir: train
-  transformed_test_dir: test
+  transformed_validation_dir: validation
   preprocessing_dir: preprocessed
   preprocessed_object_file_name: preprocessed.pkl
 

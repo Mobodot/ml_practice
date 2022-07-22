@@ -23,6 +23,7 @@ RAW_DATA_DIR_KEY = "raw_data_dir"
 ZIP_DOWNLOAD_DIR_KEY = "zip_download_dir"
 INGESTED_DIR_KEY = "ingested_dir"
 INGESTED_TRAIN_DIR_KEY = "ingested_train_dir"
+INGESTED_VALIDATION_DIR_KEY = "ingested_validation_dir"
 INGESTED_TEST_DIR_KEY = "ingested_test_dir"
 
 
@@ -32,11 +33,37 @@ DATA_VALIDATION_SCHEMA_FILE_NAME_KEY = "schema_file_name"
 DATA_VALIDATION_ARTIFACT_DIR = "data_validation"
 DATA_VALIDATION_REPORT_FILE_NAME_KEY = "report_file_name"
 DATA_VALIDATION_REPORT_PAGE_FILE_NAME_KEY = "report_page_file_name"
-# print(CONFIG_FILE_PATH)
-# print(PARENT_DIR_PATH, "hello")
 
+# Data Transformation related variables
+DATA_TRANSFORMATION_CONFIG_KEY = "data_transformation_config"
+DATA_TRANSFORMATION_DIR_KEY = "data_transformation"
+# DATA_TRANSFORMATION_GENERATE_CLEAN_DATE_COLS_KEY = "generate_clean_date_cols"
+DATA_TRANSFORMATION_TRANSFORMED_DIR_KEY = "transformed_dir"
+DATA_TRANSFORMATION_TRAIN_DIR_KEY = "transformed_train_dir"
+DATA_TRANSFORMATION_VALIDATION_DIR_KEY = "transformed_validation_dir"
+DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY = "preprocessing_dir"
+DATA_TRANSFORMATION_PREPROCESSED_OBJECT_FILE_NAME_KEY = "preprocessed_object_file_name"
 
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> cross check these variables <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+# Dataset schema related variables
+SCHEMA_COLUMNS_KEY = "columns"
+SCHEMA_CLEAN_CATEGORICAL_COLUMNS_KEY = "clean_categorical_columns"
+SCHEMA_DOMAIN_VALUE_KEY = "domain_values"
+SCHEMA_UNCLEAN_COLUMNS_KEY = "unclean_columns"
+SCHEMA_TARGET_COLUMN_KEY = "target_column"
+SCHEMA_DROP_COLUMNS_KEY = "drop_columns"
 
+# Column names
+COLUMN_DATE_OF_JOURNEY = "Date_of_Journey"
+COLUMN_DEP_TIME = "Dep_Time"
+COLUMN_ARRIVAL_TIME = "Arrival_Time"
+
+# Numerical column
+COLUMN_DURATION = "Duration"
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Newly used variables <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+COLUMN_DURATION = "Duration"
+COLUMN_ADDITIONAL_INFO = "Additional_Info"
 # print("os.getcwd(): ", os.getcwd())
 
 # print(CURRENT_TIME_STAMP, type(CURRENT_TIME_STAMP))

@@ -33,3 +33,11 @@ def download_data() -> str:
 # print(download_data())
 
 # print(os.getcwd())
+
+print("Hello friends my name is \n"
+      "sam and i am going home")
+
+import pandas as pd
+
+new_val = pd.read_excel('/home/mobo/Documents/Ineuron/Live_Class/ML/PracticeML/ml_practice/flight/artifact/data_ingestion/2022-07-14 11:22:16/ingested_data/test/Test_set.xlsx')
+print(new_val.shape)

@@ -13,6 +13,28 @@ columns:
 
 target_column: Price
 
+clean_categorical_columns:
+  - Airline
+  - Source
+  - Destination
+  - Total_Stops
+
+# columns with unclean data
+unclean_columns:
+  - Additional_Info
+  - Date_of_Journey
+  - Dep_Time
+  - Arrival_Time
+  - Duration
+
+# columns to drop
+drop_columns:
+  - Date_of_Journey
+  - Dep_Time
+  - Arrival_Time
+  - Route
+  - Price
+
 domain_values:
   Airline:
     - IndiGo
