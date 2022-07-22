@@ -1,4 +1,4 @@
-import os.path
+import os
 import sys
 import numpy as np
 import pandas as pd
@@ -12,8 +12,8 @@ from sklearn.impute import SimpleImputer
 from flight.exception import FlightException
 from sklearn.compose import ColumnTransformer
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.preprocessing import LabelEncoder, StandardScaler, OrdinalEncoder
-from flight.entity.config_entity import DataTransformationConfig, DataValidationConfig
+from sklearn.preprocessing import StandardScaler, OrdinalEncoder
+from flight.entity.config_entity import DataTransformationConfig
 from flight.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact, DataTransformationArtifact
 
 
@@ -270,7 +270,7 @@ class DataTransformation:
             raise FlightException(e, sys)
 
     def __del__(self):
-        logging.info(f"{'>>'*30}Data Transformation log completed.{'<<'*30} \n\n")
+        logging.info(f"{'>>'*20}Data Transformation log completed.{'<<'*20} \n\n")
 
 
 # code testing
