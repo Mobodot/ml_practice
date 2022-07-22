@@ -51,7 +51,7 @@ SCHEMA_CLEAN_CATEGORICAL_COLUMNS_KEY = "clean_categorical_columns"
 SCHEMA_DOMAIN_VALUE_KEY = "domain_values"
 SCHEMA_UNCLEAN_COLUMNS_KEY = "unclean_columns"
 SCHEMA_TARGET_COLUMN_KEY = "target_column"
-SCHEMA_DROP_COLUMNS_KEY = "drop_columns"
+# SCHEMA_DROP_COLUMNS_KEY = "drop_columns"
 
 # Column names
 COLUMN_DATE_OF_JOURNEY = "Date_of_Journey"
