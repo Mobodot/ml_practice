@@ -17,7 +17,7 @@ def read_yaml(file_path: str) -> dict:
         raise FlightException(e, sys) from e
 
 def save_object(file_path: str, obj):
-    """
+    """train_data
     :param file_path: str
     :param obj: Save any sort of object
     """
@@ -26,6 +26,17 @@ def save_object(file_path: str, obj):
         os.makedirs(dir_path, exist_ok=True)
         with open(file_path, "wb") as file_obj:
             pickle.dump(obj, file_obj)
+    except Exception as e:
+        raise FlightException(e, sys)
+
+def load_object(file_path: str) -> object:
+    """
+    :param file_path: str
+    :return: object
+    """
+    try:
+        with open(file_path, "rb") as file_obj:
+            return pickle.load(file_obj)
     except Exception as e:
         raise FlightException(e, sys)
 
@@ -44,6 +55,17 @@ def save_numpy_array_data(file_path:str, array: np.array) -> None:
     except Exception as e:
         raise FlightException(e, sys)
 
+def load_numpy_array_data(file_path:str) -> np.array:
+    """
+    Load numpy array data from file
+    :param file_path: str location of file to load
+    :return: np.array data loaded
+    """
+    try:
+        with open(file_path, "rb") as file_obj:
+            return np.load(file_obj)
+    except Exception as e:
+        raise FlightException(e, sys)
 # print(read_yaml("config/config.yaml"))
 
 # import os

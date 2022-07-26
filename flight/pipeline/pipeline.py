@@ -2,10 +2,12 @@ import sys
 
 from flight.exception import FlightException
 from flight.config.configuration import Configuration
+from flight.component.model_trainer import ModelTrainer
 from flight.component.data_ingestion import DataIngestion
 from flight.component.data_validation import DataValidation
 from flight.component.data_transformation import DataTransformation
-from flight.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact
+from flight.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact, \
+    DataTransformationArtifact
 
 
 class Pipeline:
@@ -46,8 +48,16 @@ class Pipeline:
         except Exception as e:
             raise FlightException(e, sys)
 
-    def start_model_trainer(self):
-        pass
+    def start_model_trainer(self,
+                            data_transformation_artifact: DataTransformationArtifact):
+        try:
+            model_trainer = ModelTrainer(
+                model_trainer_config=self.config.get_model_trainer_config(),
+                data_transformation_artifact=data_transformation_artifact
+            )
+            return model_trainer.initiate_model_trainer()
+        except Exception as e:
+            raise FlightException(e, sys)
 
     def start_model_evaluation(self):
         pass
@@ -66,5 +76,9 @@ class Pipeline:
                     data_ingestion_artifact=data_ingestion_artifact,
                     data_validation_artifact=data_validation_artifact
                 )
+            model_trainer_artifact = self.start_model_trainer(
+                data_transformation_artifact=data_transformation_artifact
+            )
+            # return model_trainer_artifact
         except Exception as e:
             raise FlightException(e, sys)

@@ -19,8 +19,8 @@ DataTransformationConfig = namedtuple("DataTransformationConfig", [# "generate_c
                                                                    "transformed_validation_dir",
                                                                    "preprocessed_object_file_path"])
 
-ModelTrainerConfig = namedtuple("ModelTrainerconfig", ["trained_model_dir",
-                                                       "model_file_name",
+ModelTrainerConfig = namedtuple("ModelTrainerconfig", ["trained_model_file_path",
+                                                       "model_config_file_path",
                                                        "base_accuracy"])
 
 ModelPusherConfig = namedtuple("ModelPusherConfig", ["model_export_dir"])

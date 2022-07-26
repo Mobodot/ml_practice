@@ -58,12 +58,19 @@ COLUMN_DATE_OF_JOURNEY = "Date_of_Journey"
 COLUMN_DEP_TIME = "Dep_Time"
 COLUMN_ARRIVAL_TIME = "Arrival_Time"
 
-# Numerical column
-COLUMN_DURATION = "Duration"
-
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Newly used variables <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 COLUMN_DURATION = "Duration"
 COLUMN_ADDITIONAL_INFO = "Additional_Info"
-# print("os.getcwd(): ", os.getcwd())
+
+# Model trainer related variables
+MODEL_TRAINER_ARTIFACT_DIR = "model_trainer"
+MODEL_TRAINER_CONFIG_KEY = "model_trainer_config"
+MODEL_TRAINER_CONFIG_DIR_KEY = "model_config_dir"
+MODEL_TRAINER_TRAINED_MODEL_DIR_KEY = "trained_model_dir"
+MODEL_TRAINER_MODEL_FILE_NAME_KEY = "model_file_name"
+MODEL_TRAINER_BASE_ACCURACY_KEY = "base_accuracy"
+MODEL_TRAINER_CONFIG_FILE_NAME_KEY = "model_config_file_name"
+# print("os.getcwd(): ", os.getcwd
+# ())
 
 # print(CURRENT_TIME_STAMP, type(CURRENT_TIME_STAMP))
