@@ -7,6 +7,20 @@ import numpy as np
 from flight.exception import FlightException
 
 
+def write_yaml(file_path: str, data: dict=None) -> None:
+    """
+    Create yaml file
+    :param file_path: str
+    :param data: dict
+    :return: None
+    """
+    try:
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        with open(file_path, "w") as yaml_file:
+            if data is not None:
+                yaml.dump(data, yaml_file)
+    except Exception as e:
+        raise FlightException(e, sys)
 
 def read_yaml(file_path: str) -> dict:
     """This function reads a yaml file and returns a dict"""
