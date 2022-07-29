@@ -153,7 +153,7 @@ class ModelEvaluation:
                 logging.info("Trained model is no better than existing model hence not accepting trained model.")
                 model_evaluation_artifact = ModelEvaluationArtifact(is_model_accepted=False,
                                                                     evaluated_model_path=trained_model_file_path)
-                return model_evaluation_artifact
+            return model_evaluation_artifact
         except Exception as e:
             raise FlightException(e, sys)
 
