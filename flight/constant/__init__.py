@@ -1,6 +1,9 @@
 import os
 from datetime import datetime
 
+def get_current_time_stamp():
+    return f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}"
+
 ROOT_DIR = os.getcwd()
 
 
@@ -87,7 +90,7 @@ MODEL_PUSHER_MODEL_EXPORT_DIR_KEY = "model_export_dir"
 # Experiment related variables
 EXPERIMENT_DIR_NAME = "experiment"
 EXPERIMENT_FILE_NAME = "experiment.csv"
-# print("os.getcwd(): ", os.getcwd
-# ())
 
-# print(CURRENT_TIME_STAMP, type(CURRENT_TIME_STAMP))
+# app.py related variables
+# PRICE_KEY = "Price"
+# FLIGHT_DATA_KEY = "flight_data"

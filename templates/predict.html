@@ -1,0 +1,261 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>Flight Estimator</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+
+
+        <form action="/predict" method="post">
+            <legend>Flight Estimation Form</legend>
+
+<!--            Airline-->
+            <div class="mb-3">
+                <label class="form-label">Airline</label>
+                <select class="form-control" name="airline" required>
+                    <option value="Jet Airways Business">
+                        Jet Airways Business
+                    </option>
+                    <option value="Jet Airways">
+                        Jet Airways
+                    </option>
+                    <option value="Multiple carriers">
+                        Multiple carriers
+                    </option>
+                    <option value="Air India">
+                        Air India
+                    </option>
+                    <option value="IndiGo">
+                        IndiGo
+                    </option>
+                    <option value="GoAir">
+                        GoAir
+                    </option>
+                    <option value="SpiceJet">
+                        SpiceJet
+                    </option>
+                    <option value="Vistara">
+                        Vistara
+                    </option>
+                    <option value="Multiple carriers Premium economy">
+                        Multiple carriers Premium economy
+                    </option>
+                    <option value="Air Asia">
+                        Air Asia
+                    </option>
+                    <option value="Vistara Premium economy">
+                        Vistara Premium economy
+                    </option>
+                    <option value="Trujet">
+                        Trujet
+                    </option>
+
+                </select>
+            </div>
+
+<!--            Date of journey-->
+            <div class="mb-3">
+                <label class="form-label">Date of Journey</label>
+                <input class="form-control" type="text" name="date_of_journey" placeholder="Format -> e.g: 24/03/2019"
+                    required />
+
+            </div>
+
+<!--            Source-->
+            <div class="mb-3">
+                <label class="form-label">Source</label>
+                <select class="form-control" name="source" required>
+
+                    <option value="Banglore">
+                        Banglore
+                    </option>
+                    <option value="Delhi">
+                        Delhi
+                    </option>
+                    <option value="Kolkata">
+                        Kolkata
+                    </option>
+                    <option value="Mumbai">
+                        Mumbai
+                    </option>
+                    <option value="Chennai">
+                        Chennai
+                    </option>
+
+                </select>
+            </div>
+
+<!--            Destination-->
+            <div class="mb-3">
+                <label class="form-label">Destination</label>
+                <select class="form-control" name="destination" required>
+
+                    <option value="Banglore">
+                        Banglore
+                    </option>
+                    <option value="Delhi">
+                        Delhi
+                    </option>
+                    <option value="Kolkata">
+                        Kolkata
+                    </option>
+                    <option value="New Delhi">
+                        Mumbai
+                    </option>
+                    <option value="Chennai">
+                        Chennai
+                    </option>
+                    <option value="Hyderabad">
+                        Hyderabad
+                    </option>
+
+                </select>
+            </div>
+
+<!--            Total Stops-->
+            <div class="mb-3">
+                <label class="form-label">Total Stops</label>
+                <select class="form-control" name="total_stops" required>
+
+                    <option value="non-stop">
+                        non-stop
+                    </option>
+                    <option value="1 stop">
+                        1 stops
+                    </option>
+                    <option value="2 stops">
+                        2 stops
+                    </option>
+                    <option value="3 stops">
+                        3 stops
+                    </option>
+                    <option value="4 stops">
+                        4 stops
+                    </option>
+
+                </select>
+            </div>
+
+<!--            Additional_info-->
+            <div class="mb-3">
+                <label class="form-label">Additional Info</label>
+                <select class="form-control" name="additional_info" required>
+
+                    <option value="Business class">
+                        Business class
+                    </option>
+                    <option value="No info">
+                        No info
+                    </option>
+                    <option value="1 Long layover">
+                        1 Long layover
+                    </option>
+                    <option value="1 Short layover">
+                        1 Short layover
+                    </option>
+                    <option value="2 Short layover">
+                        2 Short layover
+                    </option>
+                    <option value="Change airports">
+                        Change airports
+                    </option>
+                    <option value="In-flight meal not included">
+                        In-flight meal not included
+                    </option>
+                    <option value="No check-in baggage included">
+                        No check-in baggage included
+                    </option>
+                    <option value="Red-eye flight">
+                        Red-eye flight
+                    </option>
+
+                </select>
+            </div>
+
+<!--            Arrival time-->
+            <div class="mb-3">
+                <label class="form-label">Arrival Time</label>
+                <input class="form-control" type="text" name="arrival_time" placeholder="Format -> e.g: 15:00, 09:25"
+                    required />
+
+            </div>
+
+<!--            Departure Time-->
+            <div class="mb-3">
+                <label class="form-label">Departure Time</label>
+                <input class="form-control" type="text" name="dep_time" placeholder="Format -> e.g: 15:00, 09:25"
+                    required />
+
+            </div>
+
+<!--            Duration-->
+            <div class="mb-3">
+                <label class="form-label">Flight Duration</label>
+                <input class="form-control" type="text" name="duration" placeholder="Format -> e.g: 2h 40m, 2h, 40m"
+                    required />
+
+            </div>
+
+            <div class="mb-3">
+
+                <input class="btn btn-primary" type="submit" value="Predict Flight Price" required />
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+              Indian Flight price
+            </div>
+            <div class="card-body">
+        {% if context['flight_data'] is not none %}
+        <table class="table table-striped">
+            <caption>India Flight Prediction </caption>
+            <tr>
+                <th>Input Feature</th>
+                <th>Feature Value</th>
+
+            </tr>
+            {% for column,value in context['flight_data'].items() %}
+
+
+
+            <tr>
+                <td>{{column}}</td>
+                <td>{{value[0]}}</td>
+            </tr>
+
+            {% endfor %}
+            <tr>
+
+                <td>Price </td>
+                <td>
+<!--                    INR {{ context['Price'][0] }}-->
+                    INR {{'%0.2f'| format(context['Price']|float)}}
+                </td>
+            </tr>
+        </table>
+
+        {% else %}
+
+              <h5 class="card-title">Submit Form</h5>
+              <p class="card-text">Kindly provide all the necessary information to estimate flight price in India</p>
+
+
+
+        {% endif %}
+        Go to <a href="/" class="btn btn-primary">Home</a>
+    </div>
+</div>
+    </div>
+</div>
+
+    {% endblock %}

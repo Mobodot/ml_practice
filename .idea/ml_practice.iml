@@ -11,6 +11,7 @@
       <excludeFolder url="file://$MODULE_DIR$/flight/artifact/data_validation/2022-07-07 21:48:29" />
       <excludeFolder url="file://$MODULE_DIR$/flight/artifact/data_validation/2022-07-07 22:17:28" />
       <excludeFolder url="file://$MODULE_DIR$/flight.egg-info" />
+      <excludeFolder url="file://$MODULE_DIR$/flight/artifact" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (house_pred)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

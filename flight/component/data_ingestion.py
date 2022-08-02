@@ -59,8 +59,8 @@ class DataIngestion:
             download_url = self.data_ingestion_config.dataset_download_url
             raw_data_dir = self.data_ingestion_config.raw_data_dir
 
-            if os.path.exists(raw_data_dir):
-                os.remove(raw_data_dir)
+            # if os.path.exists(raw_data_dir):
+            #     os.remove(raw_data_dir)
 
             os.makedirs(raw_data_dir, exist_ok=True)
             logging.info(f"Downloading file from [{download_url}] into: [{raw_data_dir}]")
