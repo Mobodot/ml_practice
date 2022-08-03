@@ -1,6 +1,9 @@
 import os
 import shutil
 import sys
+
+os.environ["KAGGLE_USERNAME"] = "mobodot"
+os.environ["KAGGLE_KEY"] = "7fbcfb9560505178f0b9226a08aa6f40"
 import opendatasets
 import pandas as pd
 import numpy as np
@@ -66,7 +69,7 @@ class DataIngestion:
             logging.info(f"Downloading file from [{download_url}] into: [{raw_data_dir}]")
 
             # requires kaggle name and api key gotten from your kaggle account setting kaggle.json file
-            # to be inputted in the terminal
+            # to be placed in the root dir of the project i.e: ./kaggle.json
             opendatasets.download(download_url, raw_data_dir+"/")
             logging.info(f"File {raw_data_dir} downloaded successfully!")
             raw_data_dir_dataset_dir_name = os.listdir(raw_data_dir)[0]

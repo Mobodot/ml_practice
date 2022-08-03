@@ -22,4 +22,4 @@ model_selection:
       random_state: 10
     search_param_grid:
       max_depth:
-      - 20
+      - 22
