@@ -82,7 +82,7 @@ val = {
     "Airline": ["Jet Airways Business"],
     "Date_of_Journey": "24/03/2019",
     "Source": ["Banglore"],
-    "Destination": ["Banglore"],
+    "Destination": ["Chennai"],
     # "route": "BLR -> DEL",
     "Arrival_Time": ["15:00"],
     "Dep_Time": ["09:25"],
@@ -91,15 +91,15 @@ val = {
     "Additional_Info": ["Business class"],
 }
 
-path = "/home/mobo/Documents/Ineuron/Live_Class/ML/PracticeML/ml_practice/saved_models/20220801125501/model.pkl"
-path1 = "/home/mobo/Documents/Ineuron/Live_Class/ML/PracticeML/ml_practice/flight/artifact/data_ingestion/2022-08-01 12:53:51/ingested_data/test/Test_set.xlsx"
+path = "/home/mobo/Documents/Ineuron/Live_Class/ML/PracticeML/ml_practice/saved_models/20220805072026/model.pkl"
+# path1 = "/home/mobo/Documents/Ineuron/Live_Class/ML/PracticeML/ml_practice/flight/artifact/data_ingestion/2022-08-01 12:53:51/ingested_data/test/Test_set.xlsx"
 
 import pickle
 import pandas as pd
 from collections import namedtuple
 
-new_val = pd.read_excel(path1)
-print(new_val.Airline.unique())
+# new_val = pd.read_excel(path1)
+# print(new_val.Airline.unique())
 
 with open(path, 'rb') as file_path:
     model = pickle.load(file_path)
