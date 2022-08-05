@@ -38,6 +38,8 @@ The dataset was gotten from kaggle: [dataset link](https://www.kaggle.com/datase
 5. Docker
 6. Flask
 
+App link: [flightapp](https://housepredapp.herokuapp.com)
+
 ## Application Images
 ```Home page```
 ![homepage](images/homepage.png)
