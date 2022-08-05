@@ -91,7 +91,7 @@ val = {
     "Additional_Info": ["Business class"],
 }
 
-path = "/home/mobo/Documents/Ineuron/Live_Class/ML/PracticeML/ml_practice/saved_models/20220805072026/model.pkl"
+# path = "/home/mobo/Documents/Ineuron/Live_Class/ML/PracticeML/ml_practice/saved_models/20220805072026/model.pkl"
 # path1 = "/home/mobo/Documents/Ineuron/Live_Class/ML/PracticeML/ml_practice/flight/artifact/data_ingestion/2022-08-01 12:53:51/ingested_data/test/Test_set.xlsx"
 
 import pickle
@@ -101,14 +101,17 @@ from collections import namedtuple
 # new_val = pd.read_excel(path1)
 # print(new_val.Airline.unique())
 
-with open(path, 'rb') as file_path:
-    model = pickle.load(file_path)
+# with open(path, 'rb') as file_path:
+#     model = pickle.load(file_path)
 # print(model.__dict__)
 
-val_df = pd.DataFrame(val)
-print(val_df)
+# val_df = pd.DataFrame(val)
+# print(val_df)
 
 # print([list(val.values())])
 #
-result = model.predict(val_df)
-print(result)
+# result = model.predict(val_df)
+# print(result)
+
+from datetime import datetime
+print(datetime.now())
