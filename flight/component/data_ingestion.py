@@ -2,8 +2,6 @@ import os
 import shutil
 import sys
 
-os.environ["KAGGLE_USERNAME"] = "mobodot"
-os.environ["KAGGLE_KEY"] = "7fbcfb9560505178f0b9226a08aa6f40"
 import opendatasets
 import pandas as pd
 import numpy as np
