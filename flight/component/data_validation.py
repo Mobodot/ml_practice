@@ -80,6 +80,10 @@ class DataValidation:
             train_df, _ = self.get_train_and_validation_df()
 
             logging.info("Starting dataset column name and datatype validation")
+            # ============
+            logging.info(f"type of train_df: {train_df}")
+            logging.info(f"train_df.columns: {train_df}")
+            # ==============
             schema_columns = schema_file[SCHEMA_COLUMNS_KEY]
             if len(train_df.columns) == len(schema_columns):
                 for col_name in train_df.columns:
