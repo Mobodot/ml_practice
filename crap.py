@@ -115,3 +115,12 @@ from collections import namedtuple
 
 from datetime import datetime
 print(datetime.now())
+
+
+def print_name(abc, numlist):
+    for char in abc:
+        for num in numlist:
+            print(char, num)
+    return
+
+print_name(["a", "b", "c"], [1,2,3])
